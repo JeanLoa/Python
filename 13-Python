@@ -1,0 +1,15 @@
+while True:
+    print("Menu:")
+    print("1. Saludar")
+    print("2. Despedirse")
+    print("3. Salir")
+    opcion = int(input("Elija una opcion: "))
+    if opcion == 1:
+        print("Hola")
+    elif opcion == 2:
+        print("Adiós")
+    elif opcion == 3:
+        print("Saliendo del programa...")
+        break
+    else:
+        print("Opción invalida")
