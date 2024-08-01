@@ -1,0 +1,48 @@
+def imprimir(lista):
+    for elemento in lista:
+        print(elemento)
+
+def añadir(lista, elemento):
+    lista.append(elemento)
+    imprimir(lista)
+
+def eliminar(lista, indice):
+    if 0 <= indice < len(lista):
+        del lista[indice]
+    else:
+        print("Indice fuera de rango")
+    imprimir(lista)
+
+def ordenar(lista):
+    lista.sort()
+    print("Menor a mayor:")
+    imprimir(lista)
+    lista.sort(reverse=True)
+    print("Mayor a menor:")
+    imprimir(lista)
+
+lista = []
+tamaño = int(input("Ingrese el tamaño de la lista: "))
+for i in range (tamaño):
+    elemento = int(input(f"Elemento {i+1}: "))
+    lista.append(elemento)
+
+while True:
+    print("Hola, este el menú principal de Datos")
+    print("1. Añadir elemento")
+    print("2. Eliminar elemento")
+    print("3. Ordenar elementos")
+    input = int(input("Ingrese qué orden ejecutar: "))
+    if input == 1:
+        elemento = int(input("Ingrese el elemento a añadir: "))
+        añadir(lista, elemento)
+    elif input == 2:
+        indice = int(input("Ingrese el índice a eliminar: "))
+        eliminar(lista, indice)
+    elif input == 3:
+        ordenar(lista)
+    elif input == 4:
+        print("Saliendo del programa...")
+        break
+    else:
+        print("Opción invalida")
