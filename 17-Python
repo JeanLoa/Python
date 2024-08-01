@@ -1,0 +1,8 @@
+name = input("Ingresa un nombre: ")
+
+name = name.replace(" ", "").lower()
+
+if name == name[::-1]:
+    print("Es palíndromo")
+else:
+    print("No es palíndromo")
