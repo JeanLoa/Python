@@ -1,0 +1,67 @@
+# Función para agregar un contacto al diccionario
+def Agregar(nombre, telefono, email, contactos):
+    contactos["nombres"].append(nombre)
+    contactos["telefonos"].append(telefono)
+    contactos["emails"].append(email)
+    print("Contacto agregado.")
+
+# Función para eliminar un contacto del diccionario por índice
+def Eliminar(indice, contactos):
+    if 0 <= indice < len(contactos["nombres"]):
+        del contactos["nombres"][indice]
+        del contactos["telefonos"][indice]
+        del contactos["emails"][indice]
+        print("Contacto eliminado.")
+    else:
+        print("Índice fuera de rango.")
+
+# Función para buscar un contacto por índice en el diccionario
+def Buscar(indice, contactos):
+    if 0 <= indice < len(contactos["nombres"]):
+        print(f"El usuario {indice + 1} buscado es:")
+        print("Nombre:", contactos["nombres"][indice])
+        print("Teléfono:", contactos["telefonos"][indice])
+        print("Email:", contactos["emails"][indice])
+    else:
+        print("Índice fuera de rango.")
+
+# Crear el diccionario de contactos
+contactos = {
+    "nombres": [],
+    "telefonos": [],
+    "emails": []
+}
+
+# Solicitar la cantidad de contactos iniciales y añadirlos al diccionario
+n = int(input("Ingrese la cantidad de contactos iniciales: "))
+for i in range(n):
+    nombre = input("Ingrese el nombre del contacto: ")
+    telefono = int(input("Ingrese el número de teléfono del contacto: "))
+    email = input("Ingrese el email del contacto: ")
+    Agregar(nombre, telefono, email, contactos)
+
+# Menú principal para interactuar con el usuario
+while True:
+    print("\nMenú de contactos")
+    print("1. Agregar contacto")
+    print("2. Eliminar contacto")
+    print("3. Buscar contacto")
+    print("4. Salir")
+    opcion = int(input("Ingrese una opción: "))
+
+    if opcion == 1:
+        nombre = input("Ingrese el nombre del contacto: ")
+        telefono = int(input("Ingrese el número de teléfono del contacto: "))
+        email = input("Ingrese el email del contacto: ")
+        Agregar(nombre, telefono, email, contactos)
+    elif opcion == 2:
+        indice = int(input("Ingrese el índice del contacto a eliminar: ")) - 1
+        Eliminar(indice, contactos)
+    elif opcion == 3:
+        indice = int(input("Ingrese el índice del contacto a buscar: ")) - 1
+        Buscar(indice, contactos)
+    elif opcion == 4:
+        print("Saliendo del programa...")
+        break
+    else:
+        print("Opción inválida.")
